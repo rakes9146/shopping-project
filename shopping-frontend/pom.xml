@@ -18,6 +18,13 @@
 
 	<dependencies>
 
+		<!-- Linking Backend Project with front End project -->
+		<dependency>
+		<groupId>net.rk</groupId>
+		<artifactId>shopping-backend</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+         </dependency>
+
 		<!-- JAVA EE -->
 		<dependency>
 			<groupId>javax</groupId>

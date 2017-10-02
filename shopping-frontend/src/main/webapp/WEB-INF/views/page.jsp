@@ -63,6 +63,13 @@
        		<!-- Page Content End here-->
 
 
+      
+	<!-- This will get loaded when user clicks on Products -->
+		<c:if test="${userClickAllProducts == true or userClickCategoryProducts==true}">
+ 			<%@include file="list.jsp"%>
+		</c:if>
+       </div>
+
 		<!-- Footer -->
 		<!-- Footer Comes Here-->
 		<%@include file="./shared/footer.jsp"%>

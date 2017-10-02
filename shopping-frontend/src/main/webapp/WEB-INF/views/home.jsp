@@ -1,19 +1,17 @@
 <div class="container">
 
+<!--side Bar -->
 	<div class="row">
+
 
 		<div class="col-lg-3">
 
-			<h1 class="my-4">Shop Name</h1>
-			<div class="list-group">
-				<a href="#" class="list-group-item">Category 1</a> <a href="#"
-					class="list-group-item">Category 2</a> <a href="#"
-					class="list-group-item">Category 3</a>
-			</div>
-
+			 <h1 class="my-4">Shop Name</h1> 
+			<%@include file="./shared/sidebar.jsp"%>
+		
 		</div>
-		<!-- /.col-lg-3 -->
-
+		<!-- col-lg-3 -->
+<!--side Bar End-->
 		<div class="col-lg-9">
 
 			<div id="carouselExampleIndicators" class="carousel slide my-4"
