@@ -23,5 +23,20 @@
 			<attribute name="org.eclipse.jst.component.nondependency" value=""/>
 		</attributes>
 	</classpathentry>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/RAKESHLOHAR/.m2/repository/org/springframework/webflow/spring-binding/2.4.4.RELEASE/spring-binding-2.4.4.RELEASE.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="org.eclipse.jst.component.archivename" value="spring-binding-2.4.4.RELEASE.jar"/>
+			<attribute name="maven.groupId" value="org.springframework.webflow"/>
+			<attribute name="maven.artifactId" value="spring-binding"/>
+			<attribute name="maven.version" value="2.4.4.RELEASE"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

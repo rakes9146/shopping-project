@@ -17,7 +17,8 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="">
 <meta name="author" content="">
-
+<meta name="_csrf" content="${_csrf.token}">
+<meta name="_csrf_header" content="${_csrf.headerName}">
 <title>${title}</title>
 <script>
 	window.menu = '${title}';
@@ -75,6 +76,14 @@
 			test="${userClickAllProducts == true or userClickCategoryProducts==true}">
 			<%@include file="list.jsp"%>
 		</c:if>
+		
+		
+		
+		<!-- Loads when user clicks on manage products -->
+		<c:if
+			test="${userClickManageProducts == true}">
+			<%@include file="manageProduct.jsp"%>
+		</c:if>
 	</div>
 
 
@@ -92,8 +101,11 @@
 
 
 	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.min.js"></script>
-	<script src="${js}/popper.min.js"></script>
+	<script src="${js}/jquery.js"></script>
+	
+	
+	<!-- Jqery Validator -->
+	<script src="${js}/jquery.validate.js"></script>
 
 	<script src="${js}/bootstrap.min.js"></script>
 
@@ -103,6 +115,9 @@
 	<!-- DataTable Bootstrap Javascript -->
 
 	<script src="${js}/dataTables.bootstrap.js"></script>
+
+  <!-- Bootbox library -->
+  <script src="${js}/bootbox.min.js"></script>
 
 	<script src="${js}/app.js"></script>
 

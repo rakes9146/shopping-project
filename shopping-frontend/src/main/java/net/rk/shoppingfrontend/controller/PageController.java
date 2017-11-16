@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import net.rk.shopping_backend.dao.CategoryDAO;
@@ -112,4 +113,34 @@ public class PageController {
 
 		return mv;
 	}
+	
+	
+	/*
+	 * 
+	 * Page Controller
+	 */
+	
+	@RequestMapping(value="/login")
+	public ModelAndView login(@RequestParam(name="error",required=false)String error){
+		
+		ModelAndView mv = new ModelAndView("login");
+		if(error!=null){
+			mv.addObject("message","Invalid User Name and Password");
+		}
+		mv.addObject("title","Login");
+	    return mv;
+	}
+	
+	//access denieed
+	@RequestMapping(value="/access-denied")
+	public ModelAndView accessDenied(){
+		
+		ModelAndView mv = new ModelAndView("error");
+		
+		mv.addObject("title","403-Access Denied");
+		mv.addObject("errorTitle","Aha! Caught you");
+		mv.addObject("errorDescription","You are not authoriesed to view this page");
+	    return mv;
+	}
+	
 }
