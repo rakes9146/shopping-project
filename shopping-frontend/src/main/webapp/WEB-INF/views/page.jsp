@@ -26,6 +26,16 @@
 </script>
 
 <!-- Bootstrap core CSS -->
+
+<!-- Bootstrap core JavaScript -->
+
+
+<script src="${js}/jquery.js"></script>
+
+<!-- Bootstrap Minified Version -->
+<script src="${js}/bootstrap.min.js"></script>
+
+
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Bootstrap Readable Theme CSS -->
@@ -76,23 +86,38 @@
 			test="${userClickAllProducts == true or userClickCategoryProducts==true}">
 			<%@include file="list.jsp"%>
 		</c:if>
-		
-		
-		
+
+
+
 		<!-- Loads when user clicks on manage products -->
-		<c:if
-			test="${userClickManageProducts == true}">
+		<c:if test="${userClickManageProducts == true}">
 			<%@include file="manageProduct.jsp"%>
 		</c:if>
+
+		<c:if test="${userClickShowCart == true}">
+			<%@include file="cart.jsp"%>
+		</c:if>
+
+
+		<c:if test="${userClickContact == true}">
+			<%@include file="contact.jsp"%>
+		</c:if>
+
+
+
+	
+
 	</div>
 
 
 	<!-- When user clicks on view single product -->
 	<!-- This will get loaded when user clicks on About -->
-	<c:if test="${userClickContact == true}">
-		<%@include file="contact.jsp"%>
-	</c:if>
-	</div>
+
+
+
+
+
+
 
 
 	<!-- Footer -->
@@ -102,12 +127,15 @@
 
 	<!-- Bootstrap core JavaScript -->
 	<script src="${js}/jquery.js"></script>
-	
-	
+
+	<!-- Bootstrap Minified Version -->
+	<script src="${js}/bootstrap.min.js"></script>
+
+
 	<!-- Jqery Validator -->
 	<script src="${js}/jquery.validate.js"></script>
 
-	<script src="${js}/bootstrap.min.js"></script>
+
 
 	<!-- Jquery Data Table fields -->
 	<script src="${js}/jquery.dataTables.js"></script>
@@ -116,8 +144,8 @@
 
 	<script src="${js}/dataTables.bootstrap.js"></script>
 
-  <!-- Bootbox library -->
-  <script src="${js}/bootbox.min.js"></script>
+	<!-- Bootbox library -->
+	<script src="${js}/bootbox.min.js"></script>
 
 	<script src="${js}/app.js"></script>
 

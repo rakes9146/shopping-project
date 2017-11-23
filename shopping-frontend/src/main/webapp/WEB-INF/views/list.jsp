@@ -38,8 +38,13 @@
 
 
 			<div class="row">
-				<div class="container-fluid">
-					<table id="productListTable"
+				<div class="col-xs-12">
+				
+				    <div class="container-fluid">
+                            
+                            <div class="table-responsive">
+                              
+                              <table id="productListTable"
 						class="table table-striped table-borderd">
 
 						<thead>
@@ -67,6 +72,12 @@
 							</tr>
 						</tfoot>
 					</table>
+                              
+                            </div>
+                       
+                       </div>
+				
+					
 				</div>
 			</div>
 		</div>

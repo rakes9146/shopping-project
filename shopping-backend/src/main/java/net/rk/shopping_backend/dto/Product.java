@@ -1,5 +1,6 @@
 package net.rk.shopping_backend.dto;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 import javax.persistence.Column;
@@ -16,9 +17,13 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity(name="product")
-public class Product {
+public class Product implements Serializable{
 
-	  //private Fields
+	  /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	//private Fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -28,7 +33,7 @@ public class Product {
 	private String name;
 	@NotBlank(message = "Please Enter the Product Brand!")
 	private String brand;
-	@JsonIgnore
+	
 	@NotBlank(message = "Please Enter the Product Description!")
 	private String description;
 	@Column(name="unit_price")

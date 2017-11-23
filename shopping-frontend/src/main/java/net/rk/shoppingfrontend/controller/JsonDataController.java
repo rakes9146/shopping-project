@@ -41,5 +41,18 @@ public class JsonDataController {
 		return productDAO.listActiveProductsByCategory(id);
 
 	}
+	
+	@RequestMapping("/mv/products")
+	@ResponseBody
+	public List<Product> getMostViewedProducts() {		
+		return productDAO.getProductsByParam("views",3);				
+	}
+		
+	@RequestMapping("/mp/products")
+	@ResponseBody
+	public List<Product> getMostPurchasedProducts() {		
+		return productDAO.getProductsByParam("purchase",3);				
+	}
+	
 
 }

@@ -9,6 +9,9 @@ $(function() {
 	case 'All Products':
 		$('#listProducts').addClass('active');
 		break;
+	case 'User Cart':
+		$('#userCart').addClass('active');
+		break;	
 	case 'Manage Products':
 		$('#manageProducts').addClass('active');
 		break;
@@ -94,6 +97,15 @@ $(function() {
 											+ data
 											+ '/product" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
 
+								   if(userRole=='ADMIN'){
+									   
+										str += '<a href="'
+											+ window.contextRoot
+											+ '/manage/'
+											+ data
+											+ '/product" class="btn btn-warning"><span class="glyphicon glyphicon-pencil"></span></a>';
+							    
+								   }else{
 									if (row.quantity < 1) {
 
 										str += '<a href="javascript(0)" class="btn btn-success disabled"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
@@ -101,13 +113,14 @@ $(function() {
 
 										str += '<a href="'
 												+ window.contextRoot
-												+ '/cart/add'
+												+ '/cart/add/'
 												+ data
 												+ '/product" class="btn btn-success"><span class="glyphicon glyphicon-shopping-cart"></span></a>';
 									}
-
+								   }
 									return str;
-								}
+								
+								}	   
 							},
 
 					]
@@ -385,6 +398,53 @@ $(function() {
     	});
     }
 	
+    //handling the click evetn of the refersh cart button
+    
+    $('button[name="refreshCart"]').click(function(){
+    	
+    	//fetch the cart line id
+    	
+    	var cartLineId = $(this).attr('value');
+    	var countElement = $('#count_' +cartLineId);
+    		
+    	var originalCount = countElement.attr('value');
+    	var currentCount = countElement.val();
+    	
+    	//work only when the count has changed
+    	if(currentCount !== originalCount)
+    		
+              if(currentCount<1 || currentCount>3){
+            	  
+            	  //reverting back to  the original count
+            	  //user has given value below 1 and above 3
+            	  
+            	  countElement.val(originalCount);
+            	  
+            	  bootbox.alert({
+            		  
+            		 size: 'medium',
+            		 title:'Error',
+            		 message:'Product Count should be minum 1 and Maximum 3'
+            	  });
+              }else{
+            	  
+            	  var updateUrl = window.contextRoot+'/cart/'+cartLineId+'/update?count='+currentCount;
+            	  //forward it to the controller
+            	  window.location.href = updateUrl;
+              }
+     
+    });
+    
+    
+    //
+    
+    window.setTimeout(function() {
+        $(".alert").fadeTo(500, 0).slideUp(500, function(){
+            $(this).remove(); 
+        });
+    }, 4000);
+    
+ 
 
 });
 

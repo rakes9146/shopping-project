@@ -13,13 +13,18 @@ public interface UserDAO {
 	
 	User getByEmail(String email);
 	
+	User get(int id);
+	
 	//add an address
+	Address getAddress(int addressId);
 	boolean addAddress(Address address);
-	Address getBillingAddress(User user);
-	List<Address> listShippingAddress(User user);
+	Address getBillingAddress(int userId);
+	boolean updateAddress(Address address);
+	
+	List<Address> listShippingAddresses(int userId);
 	
 	
 	//add to cart
-	boolean updateCart(Cart cart);
+	
 	
 }

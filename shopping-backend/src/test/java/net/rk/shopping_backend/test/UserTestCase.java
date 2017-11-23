@@ -204,15 +204,16 @@ public class UserTestCase {
 		
 	}
 	*/
-	
+	/*
 	@Test
 	public void testGetAddress(){
 		
 		user = userDAO.getByEmail("ht@gmail.com");
 		
-		assertEquals("Failed to fethc the list of address",2,userDAO.listShippingAddress(user).size());
+		assertEquals("Failed to fethc the list of address",2,userDAO.listShippingAddresses(user).size());
 		
 		assertEquals("Failed to fethc the list of billing  address","Mumbai",userDAO.getBillingAddress(user).getCity());
 		
 	}
+	*/
 }

@@ -48,20 +48,6 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public boolean updateCart(Cart cart) {
-
-		try {
-			SessionFactory.getCurrentSession().update(cart);
-			return true;
-		} catch (Exception ex) {
-
-			ex.printStackTrace();
-			return false;
-		}
-
-	}
-
-	@Override
 	public User getByEmail(String email) {
 
 		String selectQuery = "FROM User WHERE email = :email";
@@ -75,45 +61,56 @@ public class UserDAOImpl implements UserDAO {
 			e.printStackTrace();
 			return null;
 		}
-		
-	}
-
-	@Override
-	public Address getBillingAddress(User user) {
-		
-		String selectQuery = "FROM Address WHERE user = :user AND billing = :billing";
-		try{
-			
-			return SessionFactory.getCurrentSession().createQuery(selectQuery,Address.class)
-					.setParameter("user",user)
-					.setParameter("billing",true)
-					.getSingleResult();
-			
-		}catch(Exception ex){
-			ex.printStackTrace();
-            return null;
-		}
 
 	}
 
 	@Override
-	public List<Address> listShippingAddress(User user) {
-		
-		
-		String selectQuery = "FROM Address WHERE user = :user AND shipping = :shipping";
-		try{
-			
-			return SessionFactory.getCurrentSession().createQuery(selectQuery,Address.class)
-					.setParameter("user",user)
-					.setParameter("shipping",true)
-					.getResultList();
-			
-		}catch(Exception ex){
-			ex.printStackTrace();
-            return null;
+	public Address getAddress(int addressId) {
+		try {
+			return SessionFactory.getCurrentSession().get(Address.class, addressId);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
 		}
+	}
 
-	
+	@Override
+	public Address getBillingAddress(int userId) {
+		String selectQuery = "FROM Address WHERE userId = :userId AND billing = :isBilling";
+		try {
+			return SessionFactory.getCurrentSession().createQuery(selectQuery, Address.class)
+					.setParameter("userId", userId).setParameter("isBilling", true).getSingleResult();
+		} catch (Exception ex) {
+			return null;
+		}
+	}
+
+	@Override
+	public boolean updateAddress(Address address) {
+		try {
+			SessionFactory.getCurrentSession().update(address);
+			return true;
+		} catch (Exception ex) {
+			return false;
+		}
+	}
+
+	@Override
+	public User get(int id) {
+		try {
+			return SessionFactory.getCurrentSession().get(User.class, id);
+		} catch (Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
+	@Override
+	public List<Address> listShippingAddresses(int userId) {
+
+		String selectQuery = "FROM Address WHERE userId = :userId AND shipping = :isShipping ORDER BY id DESC";
+		return SessionFactory.getCurrentSession().createQuery(selectQuery, Address.class).setParameter("userId", userId)
+				.setParameter("isShipping", true).getResultList();
 	}
 
 }

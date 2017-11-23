@@ -5,6 +5,7 @@ package net.rk.shopping_backend.handler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.binding.message.MessageBuilder;
 import org.springframework.binding.message.MessageContext;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import net.rk.shopping_backend.dao.UserDAO;
@@ -18,6 +19,9 @@ public class RegisterHandler {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private BCryptPasswordEncoder passwordEncoder;
 	
 	public RegisterModel init() {
 
@@ -49,12 +53,15 @@ public class RegisterHandler {
 
 		}
 
+		//encode the password
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
+		
 		userDAO.addUser(user);
 		
 		//get the address
 		Address billing = model.getBilling();
 		
-		billing.setUser(user);
+		billing.setUserId(user.getId());
 		billing.setBilling(true);
 		
 		//save the address

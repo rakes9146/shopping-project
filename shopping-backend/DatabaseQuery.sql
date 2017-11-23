@@ -32,13 +32,13 @@ CREATE TABLE user_detail(
 
    
  INSERT INTO user_detail(first_name,last_name,role,enabled,password,email,contact_number)
- VALUES("rakesh","lohar","ADMIN",true,"admin","rakeshlohar@live.com","9819582996");
+ VALUES("rakesh","lohar","ADMIN",true,"$2y$10$/6m9jLVgaENrZ14vpZS5/.FLQ3oxpM6Zy9l5Y3Ce/tLgvnuJgqv9a","rakeshlohar@live.com","9819582996");
  
  INSERT INTO user_detail(first_name,last_name,role,enabled,password,email,contact_number)
- VALUES("ritesh","pathak","SUPPLIER",true,"supplier","riteshpatha@gmail.com","9819582936");
+ VALUES("ritesh","pathak","SUPPLIER",true,"$2y$10$Xljc1pkGe0neC/j70hTG0u9ui/TUW0KDFOKa8Q.yHnAYhHpHzmdHS","riteshpatha@gmail.com","9819582936");
  
  INSERT INTO user_detail(first_name,last_name,role,enabled,password,email,contact_number)
- VALUES("Prajesh","Talpade","SUPPLIER",true,"supplier","pjtalpade@live.com","9819582996");
+ VALUES("Prajesh","Talpade","SUPPLIER",true,"$2y$10$K7gB5VOWAGtd1G6fMerqkuPy389uzi.061FUGW9saEdUXAHeV62GO","pjtalpade@live.com","9819582996");
  
  CREATE TABLE product(
    id INT(5) AUTO_INCREMENT PRIMARY KEY,
@@ -57,6 +57,18 @@ CREATE TABLE user_detail(
    FOREIGN KEY(supplier_id) REFERENCES user_detail(id)
  );
  
+ 
+ CREATE TABLE cart_line(
+  id INT(5) AUTO_INCREMENT PRIMARY KEY,
+  cart_id int,
+  total DECIMAL(10,2),
+  product_id int,
+  product_count int,
+  buying_price DECIMAL(10,2),
+  is_available boolean,
+    FOREIGN KEY(cart_id) REFERENCES cart(id),
+   FOREIGN KEY(product_id) REFERENCES product(id) 
+ );
  
 INSERT INTO product (code, name, brand, description, unit_price, quantity, is_active, category_id, supplier_id)
 VALUES ('PRDABC123DEFX', 'iPhone 5s', 'apple', 'This is one of the best phone available in the market right now!', 18000, 5, true, 3, 2 );

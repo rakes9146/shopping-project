@@ -1,7 +1,11 @@
-<div>
-   <div class="container">
-       <h1>Contact Us</h1>
-       <hr />
-       <p>This is Contact us Page</p>
-   </div>
-</div>
+	<div class="col-md-6 col-md-offset-3">
+
+				<div class="panel panel-primary">
+
+					<div class="panel-heading">
+					   <h4>Contact Us</h4>
+					</div>
+					
+					</div>
+					
+					</div>

@@ -16,7 +16,7 @@
 				</div>
 
          <div class="panel-body">
-				<sf:form method="post" class="form-horizontal" id="registrationForm"
+				<sf:form method="post" class="form-horizontal" id="registrationForm" action=""
 					modelAttribute="billing">
 
 					<div class="form-group">
@@ -79,6 +79,7 @@
                          </div>
 					</div>
 					
+						
 					 <div class="form-group">
                          <div class="col-md-offset-4 col-md-8">
                           <!-- Submit button for moving to personal -->
@@ -97,8 +98,8 @@
                          </div>
                         
                       </div>
-					
-				</sf:form>
+                      </sf:form>
+                   
 </div>
 			</div>
 
