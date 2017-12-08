@@ -35,13 +35,13 @@
 	                    </h3>
 	                </div>
 	                <div class="panel-body">
-	                    <form role="form">
+	                    <form role="form" id="paymentForm">
 	                    <div class="form-group">
 	                        <label for="cardNumber">
 	                            CARD NUMBER</label>
 	                        <div class="input-group">
 	                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number"
-	                                required autofocus />
+	                                required autofocus maxlength="12"/>
 	                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
 	                        </div>
 	                    </div>
@@ -51,7 +51,7 @@
 	                                <label for="expityMonth">EXPIRY DATE</label>
 	                                <br/>
 	                                <div class="col-xs-6 col-lg-6 pl-ziro">
-	                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
+	                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM"  max="1" min="12" maxlength="2" required />
 	                                </div>
 	                                <div class="col-xs-6 col-lg-6 pl-ziro">
 	                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required /></div>
@@ -61,19 +61,21 @@
 	                            <div class="form-group">
 	                                <label for="cvCode">
 	                                    CV CODE</label>
-	                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+	                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required maxlength="3"  />
 	                            </div>
 	                        </div>
 	                    </div>
-	                    </form>
-	                </div>
-	            </div>
+	        
 	            <ul class="nav nav-pills nav-stacked">
 	                <li class="active"><a href="#"><span class="badge pull-right"> &#8377; ${checkoutModel.checkoutTotal}/-</span> Final Payment</a></li>
 	            </ul>
 	            <br/>
 	            <a href="${flowExecutionUrl}&_eventId_pay" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
 			
+	                    </form>
+	                </div>
+	            </div>
+	        
 			</div>
 
 	</div>

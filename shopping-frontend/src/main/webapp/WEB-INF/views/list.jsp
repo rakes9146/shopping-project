@@ -49,7 +49,7 @@
 
 						<thead>
 							<tr>
-							<th></th>
+							<th class="img-responsive"></th>
 								<th>Name</th>
 								<th>Brand</th>
 								<th>Price</th>

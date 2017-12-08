@@ -32,7 +32,7 @@ CREATE TABLE user_detail(
 
    
  INSERT INTO user_detail(first_name,last_name,role,enabled,password,email,contact_number)
- VALUES("rakesh","lohar","ADMIN",true,"$2y$10$/6m9jLVgaENrZ14vpZS5/.FLQ3oxpM6Zy9l5Y3Ce/tLgvnuJgqv9a","rakeshlohar@live.com","9819582996");
+ VALUES("rakesh","lohar","ADMIN",true,"$2a$04$EamUQnK/eoxcQ1Zjy.h7FeW1TE4J4r2IZKnGqO8xLpGtWQRqDuw6a","rakeshlohar@live.com","9819582996");
  
  INSERT INTO user_detail(first_name,last_name,role,enabled,password,email,contact_number)
  VALUES("ritesh","pathak","SUPPLIER",true,"$2y$10$Xljc1pkGe0neC/j70hTG0u9ui/TUW0KDFOKa8Q.yHnAYhHpHzmdHS","riteshpatha@gmail.com","9819582936");

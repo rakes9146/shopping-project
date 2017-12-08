@@ -4,16 +4,16 @@
 
 <!-- <nav class="navbar  navbar-dark bg-dark fixed-top">  -->
 <nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top">
-	<div class="container">
+	<div class="container-fluid">
 		<a class="navbar-brand" href="${contextRoot}/home">Electronics
 			Shopping</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarResponsive" aria-controls="navbarResponsive"
-			aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
+		<button class="navbar-toggle" type="button" data-toggle="collapse"
+			data-target="#navbarResponsive">
+			<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+				class="icon-bar"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarResponsive">
-			<ul class="navbar-nav ml-auto">
+			<ul class="nav navbar-nav">
 				<!--  	<li class="nav-item" id="home"><a class="nav-link" href="${contextRoot}/home">Home
 							<span class="sr-only">(current)</span>
 					</a></li>-->
@@ -44,21 +44,21 @@
 
 
 				<security:authorize access="isAuthenticated()">
-					<li class="nav-item" >  </li>
-                <li class="nav-item"><a class="nav-link"
-						href="#">${userModel.fullName}</a></li>
-				
-							<security:authorize access="hasAuthority('USER')">
-								<li id="userCart"><a href="${contextRoot}/cart/show"> <span
-										class="glyphicon glyphicon-shopping-cart">${userModel.cart.cartLines}</span> <span
-										class="badge">0</span> -&#8377; ${userModel.cart.grandTotal}
-								</a></li>
-								
-							</security:authorize>
-							
+					<li class="nav-item"></li>
+					<li class="nav-item"><a class="nav-link" href="#">${userModel.fullName}</a></li>
 
-						
-						<li><a href="${contextRoot}/perform-logout">Logout</a></li>
+					<security:authorize access="hasAuthority('USER')">
+						<li id="userCart"><a href="${contextRoot}/cart/show"> <span
+								class="glyphicon glyphicon-shopping-cart">${userModel.cart.cartLines}</span>
+								<span class="badge">0</span> -&#8377;
+								${userModel.cart.grandTotal}
+						</a></li>
+
+					</security:authorize>
+
+
+
+					<li><a href="${contextRoot}/perform-logout">Logout</a></li>
 				</security:authorize>
 
 			</ul>
@@ -69,6 +69,5 @@
 	</div>
 </nav>
 <script>
-window.userRole = '${userModel.role}';
-
+	window.userRole = '${userModel.role}';
 </script>

@@ -62,7 +62,7 @@ $(function() {
 								mRender : function(data, type, row) {
 									return '<img src="' + window.contextRoot
 											+ '/resources/images/' + data
-											+ '.jpg" class="dataTableImg"/>'
+											+ '.jpg" class="dataTableImg img-responsive"/>'
 								}
 							},
 							{
@@ -444,6 +444,68 @@ $(function() {
         });
     }, 4000);
     
+ // validation for payment gateway form
+    var $paymentForm = $('#paymentForm');
+    if($paymentForm.length){
+    	
+    	$paymentForm.validate({
+    		
+    		 rules:{
+    			  cardNumber:{
+    				  required:true,
+    				  minlength:12,
+    				  maxlength:12
+    	          },
+    	          expiryMonth:{
+    	        	  required:true,
+    	        	  min:1,
+    	        	  max:12
+    	          },
+    	          expiryYear:{
+    	        	  required:true,
+    	        	  min:2018,
+    	        	  max:2035
+    	          },
+    	          cvCode:{
+    	        	  required:true,
+    	        	  minlength:3,
+    	        	  maxlength:3, 
+    	          }
+    		 },
+    		 messages:{
+    			 cardNumber:{
+    				 required: 'Please Enter the Card Number',
+    					 minlength: 'A Card Should Have 12 Digits',
+    						 maxlength: 'Only 12 Digits Allowed'
+    			 },
+    			 expiryMonth:{
+   	        	  required:'Pease Enter Expiry Month',
+   	        	  minlenght:"Invalid Value for Month",
+   	        	  maxlenght:"Invalid Value for Month"
+   	          },
+   	          expiryYear:{
+   	        	  required:'Pease Enter Expiry Year',
+   	        	  min:"Expiry Date Should Not Be Previous Year",
+   	        	  max:"Max year Allowed till 2035"
+   	          },
+   	          cvCode:{
+   	        	  required:'Pease Enter CVV Code',
+   	        	  min:'Invalid CVV Format',
+   	        	  max:'Invalid CVV Format'
+   	          }
+    		 },
+    		 errorElement:'em',
+    		 errorPlacement:function(error,element){
+    			 //add the class of help-block
+    			 error.addClass('help-block');
+    			 //add the error element after input element
+    			 error.insertAfter(element);
+    			 
+    		 }
+    	});
+    }
+	
+ 
  
 
 });
