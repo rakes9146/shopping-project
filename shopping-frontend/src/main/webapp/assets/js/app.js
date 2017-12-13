@@ -445,17 +445,19 @@ $(function() {
     }, 4000);
     
  // validation for payment gateway form
-    var $paymentForm = $('#paymentForm');
-    if($paymentForm.length){
+//    var $paymentForm = $('#paymentForm');
+  
     	
-    	$paymentForm.validate({
-    		
+    	$('#paymentForm').validate({
+    		onkeyup: false,
     		 rules:{
-    			  cardNumber:{
+    			 	
+    			 cardNumber:{
+    				 
     				  required:true,
     				  minlength:12,
     				  maxlength:12
-    	          },
+    			  },
     	          expiryMonth:{
     	        	  required:true,
     	        	  min:1,
@@ -503,8 +505,7 @@ $(function() {
     			 
     		 }
     	});
-    }
-	
+    
  
  
 
