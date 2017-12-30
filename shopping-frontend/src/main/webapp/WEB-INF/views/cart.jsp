@@ -45,7 +45,7 @@
 							</td>
 							<td data-th="Price">&#8377; ${cartLine.buyingPrice}</td>
 							<td data-th="Quantity">
-								<input type="number" class="form-control text-center" id="count_${cartLine.id}" min="1" max="3" value="${cartLine.productCount}">
+								<input type="number" name="quantity" class="form-control text-center" id="count_${cartLine.id}" min="1" max="3" value="${cartLine.productCount}">
 							</td>
 							<td data-th="Subtotal" class="text-center">&#8377; ${cartLine.total}</td>
 							<td class="actions" data-th="">

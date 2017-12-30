@@ -43,16 +43,14 @@
 <body>
 
 
-	<nav class="navbar navbar-expand-lg navbar-default navbar-fixed-top">
-		<div class="container">
-			<li class="nav-item" id="home"><a class="nav-link"
-				href="${contextRoot}/home">Home <span class="sr-only">(current)</span>
-			</a></li>
-
-		</div>
-	</nav>
-	
-	
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container">
+      <ul class="nav navbar-nav navbar-left">
+        <li> <a class=navbar-brand" href="${contextRoot}/home">Home</a></li>
+      </ul>
+   </div>
+</nav>
+	<br/><br/>
 	<div class="content">
         <div class="container">
            <div class="row">

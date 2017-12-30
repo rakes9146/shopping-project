@@ -16,8 +16,8 @@
 				</div>
 
          <div class="panel-body">
-				<sf:form method="post" class="form-horizontal" id="registrationForm" action=""
-					modelAttribute="billing">
+				<sf:form method="post" class="form-horizontal" id="registrationForm"
+				>
 
 					<div class="form-group">
 						<label class="control-label col-md-4" for="addressLineOne">Address

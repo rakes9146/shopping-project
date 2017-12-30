@@ -45,19 +45,15 @@
 	<!-- Wrapper Class -->
 	<div class="wrapper">
 
-		<nav class="nav navbar-inverse navbar-fixed-top" role="navigation">
-			<div class="container">
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+   <div class="container">
+      <ul class="nav navbar-nav navbar-left">
+        <li> <a class=navbar-brand" href="${contextRoot}/home">Home</a></li>
+      </ul>
+   </div>
+</nav>
 
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<div class="navbar-header">
-					<a class="navbar-brand" href="${contextRoot}/home">Online
-						Shopping</a>
-				</div>
-
-			</div>
-		</nav>
-
-
+<br><br>
 		<div class="container">
             <%--If the credentials are wrong --%>		
  		<c:if test="${not empty message}">

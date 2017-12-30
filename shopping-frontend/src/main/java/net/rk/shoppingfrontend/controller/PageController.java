@@ -183,7 +183,13 @@ public class PageController {
 		return "redirect:/login?logout";
 	}
 
+	@RequestMapping(value = { "/test" })
+	public ModelAndView test() {
 
-	
-	
+		ModelAndView mv = new ModelAndView("test");
+		mv.addObject("title", "About Us");
+
+		return mv;
+	}
+
 }
